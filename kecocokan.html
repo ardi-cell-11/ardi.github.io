@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kecocokan Nama Pasangan</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        /* CSS */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(
+            rgba(0, 0, 0, 0.5), /* Gradien    transparan hitam */
+            rgba(0, 0, 0, 0.5)
+             ), url('love.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: ;
+        }
+
+        .container {
+            text-align: center;
+            background: pink;
+            background-size: ;
+            background-repeat: ;
+            background-position: ;
+            padding: 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid black;
+        }
+
+        h1 {
+            color: #ff4e50;
+        }
+
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid black;
+            border-radius: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        button {
+            background-color: #ff4e50;
+            color: white;
+            padding: 10px 20px;
+            border: 1px solid black;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color:  #d43f3a;
+        }
+
+        #hasil {
+            margin-top: 20px;
+            font-size: 1em;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Seberapa cocok kamu sama dia ?</h1>
+        <p>Masukkan nama kamu dan gebetan/pasangan mu untuk melihat tingkat kecocokan kalian!</p>
+        <input type="text" id="namaAnda" placeholder="Nama Anda">
+        <input type="text" id="namaPasangan" placeholder="Nama Pasangan">
+        <button onclick="hitungKecocokan()">Cek Kecocokan</button>
+        <div id="hasil"></div>
+    </div>
+    <script>
+        // JavaScript
+        function hitungKecocokan() {
+            const namaAnda = document.getElementById('namaAnda').value.trim();
+            const namaPasangan = document.getElementById('namaPasangan').value.trim();
+            const hasilDiv = document.getElementById('hasil');
+
+            if (namaAnda === '' || namaPasangan === '') {
+                hasilDiv.innerHTML = "Harap masukkan kedua nama!";
+                hasilDiv.style.color = 'red';
+                return;
+            }
+
+            // Menghitung persentase kecocokan secara acak
+            const kecocokan = Math.floor(Math.random() * 101);
+            let pesan = "";
+
+            if (kecocokan > 80) {
+                pesan = `Wow! Tingkat kecocokan antara ${namaAnda} dan ${namaPasangan} adalah ${kecocokan}%. Pasangan yang serasi!`;
+            } else if (kecocokan > 50) {
+                pesan = `Tingkat kecocokan antara ${namaAnda} dan ${namaPasangan} adalah ${kecocokan}%. Cukup baik!`;
+            } else {
+                pesan = `Tingkat kecocokan antara ${namaAnda} dan ${namaPasangan} hanya ${kecocokan}%. Masih bisa diperbaiki!`;
+            }
+
+            hasilDiv.innerHTML = pesan;
+            hasilDiv.style.color = '#333';
+        }
+    </script>
+</body>
+</html>
